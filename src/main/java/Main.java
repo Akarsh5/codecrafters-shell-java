@@ -34,7 +34,7 @@ public class Main {
                 }
             }
          }else if(substr.equals("type")){
-            if(commands.contain(str.substring(5).toLowerCase())){
+            if(commands.contains(str.substring(5).toLowerCase())){
                 System.out.println(str.substring(5)+" is a shell builtin");
                 continue;
             }else{
