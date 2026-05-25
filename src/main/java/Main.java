@@ -6,11 +6,8 @@ import java.nio.file.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String concatpaths="";
-        if(args.length>1){
-            concatpaths=args[0].substring(6,args[0].length()-1);
-        }
         while(true){
+         String concatpaths = System.getenv("PATH");
          Set<String> commands=new HashSet<>();
          commands.add("exit");
          commands.add("echo");
