@@ -9,6 +9,7 @@ public class Main {
          //String str=bf.readLine();
          Scanner sc=new Scanner(System.in);
          String str=sc.nextLine();
+         if(str.equalsIgnoreCase("Exit")) break;
          System.out.println(str+": command not found");
         }
     }
