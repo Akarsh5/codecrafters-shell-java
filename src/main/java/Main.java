@@ -2,8 +2,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -44,7 +43,7 @@ public class Main {
                 System.out.println(str.substring(5)+" is a shell builtin");
                 continue;
             }else{
-                String command=commands.contains(str.substring(5).toLowerCase());
+                String command=str.substring(5).toLowerCase();
                 //type with PATH recursion? 
                 //Positive case, let's say PATH is defined we need to check it for all the executables and find the one with xyz if command is "type xyz"
                 String paths[]=concatpaths.split(File.pathSeparator);
