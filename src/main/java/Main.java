@@ -2,9 +2,15 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        String concatpaths="";
+        if(args.length>1){
+            concatpaths=args[0].substring(6,args[0].length()-1);
+        }
         while(true){
          Set<String> commands=new HashSet<>();
          commands.add("exit");
@@ -38,6 +44,19 @@ public class Main {
                 System.out.println(str.substring(5)+" is a shell builtin");
                 continue;
             }else{
+                String command=commands.contains(str.substring(5).toLowerCase());
+                //type with PATH recursion? 
+                //Positive case, let's say PATH is defined we need to check it for all the executables and find the one with xyz if command is "type xyz"
+                String paths[]=concatpaths.split(File.pathSeparator);
+                for(String path:paths){
+                    Paths p=Paths.get(path+File.separator+command);
+                    boolean res=Files.isExecutable(p);
+                    if(res){
+                         System.out.println(command+" is "+p.toString());
+                         continue;
+                    }
+                }
+                //Negative case:
                 System.out.println(str.substring(5)+": not found");
                 continue;
             }
