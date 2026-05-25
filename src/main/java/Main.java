@@ -30,6 +30,5 @@ public class Main {
          }
          System.out.println(str+": command not found"); // if command not found
         }
-        sc.close();
     }
 }
