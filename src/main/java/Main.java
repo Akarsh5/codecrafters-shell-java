@@ -48,7 +48,7 @@ public class Main {
                 //Positive case, let's say PATH is defined we need to check it for all the executables and find the one with xyz if command is "type xyz"
                 String paths[]=concatpaths.split(File.pathSeparator);
                 for(String path:paths){
-                    Paths p=Paths.get(path+File.separator+command);
+                    Path p=Paths.get(path+File.separator+command);
                     boolean res=Files.isExecutable(p);
                     if(res){
                          System.out.println(command+" is "+p.toString());
