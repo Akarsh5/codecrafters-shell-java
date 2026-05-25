@@ -47,14 +47,17 @@ public class Main {
                 //type with PATH recursion? 
                 //Positive case, let's say PATH is defined we need to check it for all the executables and find the one with xyz if command is "type xyz"
                 String paths[]=concatpaths.split(File.pathSeparator);
+                boolean found=false;
                 for(String path:paths){
                     Path p=Paths.get(path+File.separator+command);
                     boolean res=Files.isExecutable(p);
                     if(res){
                          System.out.println(command+" is "+p.toString());
-                         continue;
+                         found=true;
+                         break;
                     }
                 }
+                if(found) continue;
                 //Negative case:
                 System.out.println(str.substring(5)+": not found");
                 continue;
