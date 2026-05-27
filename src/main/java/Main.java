@@ -25,7 +25,10 @@ public class Main {
          String str=sc.nextLine();
          String lower=str.toLowerCase();
          if(lower.equals("exit")) break; //exit from terminal
-
+         if(lower.equals("pwd")){
+            System.out.println(System.getProperty("user.dir"));
+            continue;
+         }
          if(lower.startsWith("echo")){
             if(str.length()==4){
                 System.out.println("ECHO is on.");
@@ -53,9 +56,9 @@ public class Main {
             }
          }else{
             String arr[]=str.split(" ");
-            //System.out.println("Reacher here ak:: "+arr[0]);
-            boolean externalProgramFound=checkExternalPrograms(arr[0]);
-            //System.out.println("Reacher here ak:: "+externalProgramFound);
+            //System.out.println("Reached here ak:: "+arr[0]);
+            boolean externalProgramFound=checkExternalPrograms(arr[0]); //for running a program with args
+            //System.out.println("Reached here ak:: "+externalProgramFound);
             if(externalProgramFound){
                 ProcessBuilder pb=new ProcessBuilder(arr);
                 Process process=pb.start();
@@ -74,7 +77,7 @@ public class Main {
     }
      public static boolean checkExternalPrograms(String str){
                 String command=str;
-                //System.out.println("Reacher here ak2:: "+command);
+                //System.out.println("Reached here ak2:: "+command);
                 if(str.startsWith("type")){
                 command=str.substring(5).toLowerCase();
                 }
@@ -89,7 +92,7 @@ public class Main {
                          System.out.println(command+" is "+p.toString());
                          found=true; //we found that particular command/executable so now mark found and break so we can show option to enter new command
                          break;
-                    }else if(res){
+                    }else if(res){ //for running a program with args
                         found=true;
                         break;
                     }
