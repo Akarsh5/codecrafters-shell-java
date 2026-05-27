@@ -85,10 +85,13 @@ public class Main {
                 for(String path:paths){
                     Path p=Paths.get(path+File.separator+command);
                     boolean res=Files.isExecutable(p);
-                    if(res){
+                    if(res && str.startsWith("type")){
                          System.out.println(command+" is "+p.toString());
                          found=true; //we found that particular command/executable so now mark found and break so we can show option to enter new command
                          break;
+                    }else if(res){
+                        found=true;
+                        break;
                     }
                 }
                 if(found) return true;
