@@ -53,7 +53,9 @@ public class Main {
             }
          }else{
             String arr[]=str.split(" ");
+            System.out.println("Reacher here ak:: "+arr[0]);
             boolean externalProgramFound=checkExternalPrograms(arr[0]);
+            System.out.println("Reacher here ak:: "+externalProgramFound);
             if(externalProgramFound){
                 ProcessBuilder pb=new ProcessBuilder(arr);
                 Process process=pb.start();
