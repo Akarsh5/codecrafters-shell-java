@@ -75,7 +75,7 @@ public class Main {
      public static boolean checkExternalPrograms(String str){
                 String command=str;
                 System.out.println("Reacher here ak2:: "+command);
-                if(str.startsWith("type"))
+                if(str.startsWith("type")){
                 command=str.substring(5).toLowerCase();
                 }
                 //type with PATH recursion? 
