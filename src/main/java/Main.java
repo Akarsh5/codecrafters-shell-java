@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -47,6 +49,19 @@ public class Main {
                 if(typeFound) continue;
                 //Negative case:
                 System.out.println(str.substring(5)+": not found");
+                continue;
+            }
+         }else{
+            String arr[]=str.split(" ");
+            boolean externalProgramFound=checkExternalPrograms(arr[0]);
+            if(externalProgramFound){
+                ProcessBuilder pb=new ProcessBuilder(arr);
+                Process process=pb.start();
+                BufferedReader reader=new BufferedReader(new InputStreamReader(process.getInputStream()));
+                String line;
+                while((line=reader.readLine())!=null){
+                    System.out.println(line);
+                }
                 continue;
             }
          }
