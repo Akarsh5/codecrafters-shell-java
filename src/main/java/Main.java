@@ -15,6 +15,7 @@ public class Main {
         commands.add("exit");
         commands.add("echo");
         commands.add("type");
+        commands.add("pwd");
     }
     public static void main(String[] args) throws Exception {
         Scanner sc=new Scanner(System.in);
@@ -25,7 +26,7 @@ public class Main {
          String str=sc.nextLine();
          String lower=str.toLowerCase();
          if(lower.equals("exit")) break; //exit from terminal
-         if(lower.contains("pwd")){
+         if(lower.equals("pwd")){
             System.out.println(System.getProperty("user.dir"));
             continue;
          }
