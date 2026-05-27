@@ -25,7 +25,7 @@ public class Main {
          String str=sc.nextLine();
          String lower=str.toLowerCase();
          if(lower.equals("exit")) break; //exit from terminal
-         if(lower.equals("pwd")){
+         if(lower.contains("pwd")){
             System.out.println(System.getProperty("user.dir"));
             continue;
          }
