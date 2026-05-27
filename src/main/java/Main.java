@@ -73,7 +73,11 @@ public class Main {
         sc.close();
     }
      public static boolean checkExternalPrograms(String str){
-        String command=str.substring(5).toLowerCase();
+                String command=str;
+                System.out.println("Reacher here ak2:: "+command);
+                if(str.startsWith("type"))
+                command=str.substring(5).toLowerCase();
+                }
                 //type with PATH recursion? 
                 //Positive case, let's say PATH is defined we need to check it for all the executables and find the one with xyz if command is "type xyz"
                 String paths[]=concatpaths.split(File.pathSeparator);
